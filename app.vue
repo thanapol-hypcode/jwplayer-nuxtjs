@@ -7,7 +7,6 @@
           <label for="playerUrl" class="block text-sm font-medium text-gray-700">Signed Player Url</label>
           <div class="mt-1 flex rounded-md shadow-sm">
             <input type="text" name="playerUrl" v-model="playerUrl"
-                   placeholder="https://cdn.jwplayer.com/libraries/zKDLEtkt.js?exp=1673858607&sig=76356d58f14447b5d912929f343e3378"
                    class="block w-full flex-1
                    rounded-none
                    rounded-r-md
@@ -31,14 +30,18 @@
                       shadow-sm
                       focus:border-indigo-500
                       focus:ring-indigo-500
-                      sm:text-sm"/>
+                      sm:text-sm h-64"/>
           </div>
         </div>
       </div>
 
-      <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+      <div class="bg-gray-50 px-4 py-3 sm:px-6">
         <button @click="play"
-                class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                class="inline-flex justify-center
+                rounded-md border border-transparent
+                bg-indigo-600 py-2 px-4
+                text-sm font-medium
+                text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
           Play
         </button>
       </div>
@@ -55,9 +58,18 @@ import {loadScript} from "vue-plugin-load-script";
 
 export default {
   data() {
+
     return {
       playerUrl: '',
-      setting: '',
+      setting: `{
+    "playlist": [
+        {
+            "adschedule": "",
+            "file": "",
+            "mediaid": ""
+        }
+    ]
+}`,
     }
   },
   methods: {
